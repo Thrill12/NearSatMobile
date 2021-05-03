@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NearSatMobile.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Frame BackgroundColor="#7f03fc" Margin="0" Padding="10" CornerRadius="4" HorizontalOptions="Fill" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <Label Text="Welcome to NearSat!" HorizontalTextAlignment="Center" TextColor="White" FontSize="30" Grid.Row="0" Grid.Column="1"/>
+        </Frame>
+        <Button x:Name="findSatButton" Text="FIND IT" CornerRadius="4" BackgroundColor="Black"  
+                Clicked="Handle_Clicked" HorizontalOptions="Fill" IsVisible="{Binding IsFindVisible}" Grid.Row="2" Grid.ColumnSpan="3"/>
+        <Label Text="Find the nearest satellite to you!" FontSize="Title" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <Label FontSize="12" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center" Grid.Row="3" Grid.ColumnSpan="2">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="("/>
+                        <Span Text="{Binding UserLatitude}"/>
+                        <Span Text=", "/>
+                        <Span Text="{Binding UserLongitude}"/>
+                        <Span Text=", "/>
+                        <Span Text="{Binding UserAltitude}"/>
+                        <Span Text=") - your coordinates"/>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label FontSize="16" Padding="5" HorizontalTextAlignment="Center" Grid.Row="5" Grid.ColumnSpan="2">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="{Binding SatelliteName}"/>
+                        <Span Text="{Binding SatelliteDistance}"/>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label Text="Andrei Patea 2021" FontSize="Micro" HorizontalTextAlignment="Start" Grid.Row="11" VerticalOptions="End"/>
+    </Grid>
+</ContentPage>
